@@ -51,7 +51,6 @@ if uploaded_file is not None:
     st.write("Nombre de factures sans ref client :", nb_factures_sans_ref_client)
     st.write("Nombre de factures sans DA :", nb_factures_sans_da)
 
-
     @st.cache_data
     def convert_df(df):
         # IMPORTANT: Cache the conversion to prevent computation on every rerun
