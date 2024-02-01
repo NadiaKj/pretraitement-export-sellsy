@@ -48,8 +48,8 @@ if uploaded_file is not None:
     st.write("Nombre de factures :", nb_lignes_factures)
     st.write("Nombre d'avoirs :", nb_lignes_avoirs)
 
-    st.write("Nombre de factures sans ref client :", nb_factures_sans_ref_client)
-    st.write("Nombre de factures sans DA :", nb_factures_sans_da)
+    st.write("Nombre de factures/avoirs sans ref client :", nb_factures_sans_ref_client)
+    st.write("Nombre de factures/avoirs sans DA :", nb_factures_sans_da)
 
     @st.cache_data
     def convert_df(df):
