@@ -38,11 +38,19 @@ if uploaded_file is not None:
 
     df_export_sellsy_new = df_export_sellsy_new.reset_index(drop=True)
 
+    nb_lignes_total = int(len(df_export_sellsy_init) / 2)
+    nb_lignes_factures = int(len(df_export_sellsy_init[df_export_sellsy_init[0].str.contains("F-")])/2)
+    nb_lignes_avoirs = int(len(df_export_sellsy_init[df_export_sellsy_init[0].str.contains("AVR-")])/2)
     nb_factures_sans_da = int(len(df_export_sellsy_sans_da) / 2)
     nb_factures_sans_ref_client = int(len(df_export_sellsy_sans_ref_client) / 2)
 
+    st.write("Nombre de lignes totales :", nb_lignes_total)
+    st.write("Nombre de factures :", nb_lignes_factures)
+    st.write("Nombre d'avoirs :", nnb_lignes_avoirs)
+
     st.write("Nombre de factures sans ref client :", nb_factures_sans_ref_client)
     st.write("Nombre de factures sans DA :", nb_factures_sans_da)
+
 
     @st.cache_data
     def convert_df(df):
