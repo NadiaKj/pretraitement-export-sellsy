@@ -13,10 +13,11 @@ if uploaded_file is not None:
     # To read file as bytes:
     df_export_sellsy_init = pd.read_csv(uploaded_file,header = None)
     lst_factures_sans_ref_client = []
+    df_export_sellsy_temp = df_export_sellsy_init
 
     for index in range(0,len(df_export_sellsy_init),2):
         if ";0000000000;" in df_export_sellsy_init.iloc[index, 0]:
-            df_export_sellsy_temp = df_export_sellsy_init.drop([index,index + 1])
+            df_export_sellsy_temp = df_export_sellsy_temp.drop([index,index + 1])
             lst_factures_sans_ref_client.append(index)
             lst_factures_sans_ref_client.append(index + 1)
 
@@ -27,6 +28,7 @@ if uploaded_file is not None:
 
     lst_factures_sans_da = []
     df_export_sellsy_new = df_export_sellsy_temp
+    
     for index in range(1,len(df_export_sellsy_temp), 2):
         if ";0000000;" in df_export_sellsy_temp.iloc[index,0]:
             df_export_sellsy_new = df_export_sellsy_new.drop([index,index - 1])
