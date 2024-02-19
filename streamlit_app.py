@@ -11,7 +11,7 @@ from io import StringIO
 uploaded_file = st.file_uploader("Importer un export SELLSY")
 if uploaded_file is not None:
     # To read file as bytes:
-    df_export_sellsy_init = pd.read_csv(uploaded_file,header = None)
+    df_export_sellsy_init = pd.read_csv(uploaded_file,sep='\t',header = None)
     lst_factures_sans_ref_client = []
     df_export_sellsy_temp = df_export_sellsy_init
 
