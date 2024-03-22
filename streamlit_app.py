@@ -41,8 +41,8 @@ if uploaded_file is not None:
     df_export_sellsy_new = df_export_sellsy_new.reset_index(drop=True)
 
     nb_lignes_total = int(len(df_export_sellsy_init) / 2)
-    nb_lignes_factures = int(len(df_export_sellsy_init[df_export_sellsy_init[0].str.contains("F-")])/2)
-    nb_lignes_avoirs = int(len(df_export_sellsy_init[df_export_sellsy_init[0].str.contains("AVR-")])/2)
+    nb_lignes_factures = len(df_export_sellsy_init[df_export_sellsy_init[0].str.contains("F-")])
+    nb_lignes_avoirs = len(df_export_sellsy_init[df_export_sellsy_init[0].str.contains("AVR-")])
     nb_factures_sans_da = int(len(df_export_sellsy_sans_da) / 2)
     nb_factures_sans_ref_client = int(len(df_export_sellsy_sans_ref_client) / 2)
 
