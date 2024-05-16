@@ -32,8 +32,9 @@ if uploaded_file is not None:
     for index in range(1,len(df_export_sellsy_temp), 2):
         if ";0000000;" in df_export_sellsy_temp.iloc[index,0]:
             df_export_sellsy_new = df_export_sellsy_new.drop([index,index - 1])
-            lst_factures_sans_da.append(index)
             lst_factures_sans_da.append(index - 1)
+            lst_factures_sans_da.append(index)
+        
 
     df_export_sellsy_sans_da = df_export_sellsy_temp.iloc[lst_factures_sans_da]
     df_export_sellsy_sans_da = df_export_sellsy_sans_da.reset_index(drop=True)
