@@ -15,6 +15,9 @@ if uploaded_file_app is not None :
     # Chargement données:
     df_export_sellsy_init = pd.read_csv(uploaded_file_app,sep='\t',header = None)
 
+    # Retrait des ",":
+    df_export_sellsy_init = df_export_sellsy_init.replace(',','',regex=True)
+
     #Extraction des factures/avoirs sans ref_client
     lst_factures_sans_ref_client = []
     df_export_sellsy_temp = df_export_sellsy_init
